@@ -22,11 +22,13 @@ const ColorList = ({ colors, updateColors }) => {
   })
   const [colorToAdd, setColorToAdd] = useState(addState);
   const editColor = color => {
+    setAdding(false)
     setEditing(true);
     setColorToEdit(color);
   };
 
   const addColor = () => {
+    setEditing(false)
     setAdding(true);
     console.log(adding)
     
@@ -55,8 +57,9 @@ const ColorList = ({ colors, updateColors }) => {
     // where is is saved right now?
   };
 
-  const saveAdd = e => {
+  const saveAdd = e => {    
     e.preventDefault();
+    
     return AxiosAuth()
       .post(`http://localhost:5000/api/colors/`, colorToAdd)
       .then(res => {
