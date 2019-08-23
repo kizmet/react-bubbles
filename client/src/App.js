@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
+import "semantic-ui-css/semantic.min.css";
 import Login from "./components/Login";
 import "./styles.scss";
+import "semantic-ui-css/semantic.min.css";
+
 
 function App() {
   const [colorList, setColorList] = useState([]);
